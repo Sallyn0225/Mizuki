@@ -246,16 +246,6 @@ export const navBarConfig: NavBarConfig = {
 					icon: "material-symbols:movie",
 				},
 				{
-					name: "Diary",
-					url: "/diary/",
-					icon: "material-symbols:book",
-				},
-				{
-					name: "Gallery",
-					url: "/albums/",
-					icon: "material-symbols:photo-library",
-				},
-				{
 					name: "Devices",
 					url: "devices/",
 					icon: "material-symbols:devices",
@@ -284,23 +274,7 @@ export const navBarConfig: NavBarConfig = {
 			name: "Others",
 			url: "#",
 			icon: "material-symbols:more-horiz",
-			children: [
-				{
-					name: "Projects",
-					url: "/projects/",
-					icon: "material-symbols:work",
-				},
-				{
-					name: "Skills",
-					url: "/skills/",
-					icon: "material-symbols:psychology",
-				},
-				{
-					name: "Timeline",
-					url: "/timeline/",
-					icon: "material-symbols:timeline",
-				},
-			],
+			children: [],
 		},
 	],
 };
@@ -391,7 +365,7 @@ export const announcementConfig: AnnouncementConfig = {
 	closable: true, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
-		text: "关于我", // 链接文本
+		text: "查看更多", // 链接文本
 		url: "/about/", // 链接 URL
 		external: false, // 内部链接
 	},
