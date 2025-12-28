@@ -16,24 +16,24 @@ export type DeviceCategory = {
 };
 
 export const devicesData: DeviceCategory = {
-	OnePlus: [
+	Phone: [
 		{
-			name: "OnePlus 13T",
-			image: "/images/device/oneplus13t.png",
-			specs: "Gray / 16G + 1TB",
+			name: "Redmi Note 12Turbo",
+			image: "/images/device/redmi-note-12turbo.png",
+			specs: "冰羽白 / 12G + 256GB",
 			description:
-				"Flagship performance, Hasselblad imaging, 80W SuperVOOC.",
-			link: "https://www.oneplus.com/cn/13t",
+				"高通第二代骁龙 7+ 性能芯，5000mAh 大电量 / 67W 旗舰秒充",
+			link: "https://www.mi.com/redmi-note-12-turbo",
 		},
 	],
-	Router: [
+	Laptop: [
 		{
-			name: "GL-MT3000",
-			image: "/images/device/mt3000.png",
-			specs: "1000Mbps / 2.5G",
+			name: "天选3锐龙版",
+			image: "/images/device/asus-tianxuan-3.png",
+			specs: "RTX3060 / AMD Ryzen 7 6800H",
 			description:
-				"Portable WiFi 6 router suitable for business trips and home use.",
-			link: "https://www.gl-inet.cn/products/gl-mt3000/",
+				"锐龙6000系列R7处理器，发烧级4G独显，144Hz显示屏，背光键盘",
+			link: "https://www.asus.com.cn/laptops/for-gaming/tuf-gaming/asus-tuf-gaming-f15-2022/",
 		},
 	],
 };
