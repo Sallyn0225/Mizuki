@@ -1,49 +1,33 @@
+你好！我是 **咲凌** ，~~暂时~~是学生。机械专业在读，但不仅限于学习机械专业。
 
-This website is built with the **Astro** framework using the [Mizuki](https://github.com/matsuzaka-yuki/mizuki) theme.
+在这里，你可能可以看到但不限于以下内容：
+
+- **现地**：记录我看日音live的相关内容，包括但不限于repo/发电文学等等
+- **旅行**：一般和现地一起出现，但内容更偏向旅行中的记录。
+- **周报**：记录我每周都干了什么。
+- **学习记录**：可以是学习乱七八糟的东西，包括但不限于开发调优/各种奇怪方向的科研。
+
+## 🛠️ 关于本站
+
+这个网站使用 **Astro** 框架构建，采用了 [Mizuki](https://github.com/matsuzaka-yuki/mizuki) 模板，Mizuki 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发。
+
+**📝Mizuki使用文档： [https://docs.mizuki.mysqil.com/](https://docs.mizuki.mysqil.com/)**
+
+**⭐Mizuki开源地址：[https://github.com/matsuzaka-yuki/mizuki](https://github.com/matsuzaka-yuki/mizuki)**
+
+**⭐Fuwari开源地址：[https://github.com/saicaca/fuwari](https://github.com/saicaca/fuwari)**
 
 ::github{repo="matsuzaka-yuki/Mizuki"}
 
-## 🌟 Theme Features
+::github{repo="saicaca/fuwari"}
 
-### 🎨 Design & User Experience
-- **Modern & Elegant Design** - Clean, minimalist interface with beautiful typography
-- **Fully Responsive** - Optimized for all devices from mobile to desktop
-- **Dark/Light Mode** - Automatic theme switching with smooth transitions
-- **Beautiful Typography** - Enhanced readability with JetBrains Mono font
-- **Smooth Animations** - Fluid page transitions and interactive elements
+## 📫 联系方式
 
-### 🔍 Content & Search
-- **Advanced Search** - Powered by [Pagefind](https://pagefind.app/) for fast, accurate results
-- **Enhanced Markdown** - Extended syntax with code highlighting and math support
-- **Interactive Table of Contents** - Auto-scroll navigation for long articles
-- **RSS Feed Generation** - Stay updated with automatic feed generation
-- **Reading Time Estimation** - Know how long articles take to read
-- **Post Categorization** - Organize content with tags and categories
+如果你想和我交流技术问题，分享有趣的想法，或者只是想打个招呼，欢迎通过以下方式联系我：
 
-
-
-### 📱 Special Pages
-- **Anime Tracking Page** - Track your anime watching progress with ratings
-- **Friends Links Page** - Showcase friend websites with beautiful cards
-- **Diary/Moments Page** - Share life moments like social media posts
-- **Archive Page** - Organized timeline view of all posts
-- **About Page** - Customizable personal introduction (this page!)
-
-### 🛠 Technical Features
-- **Enhanced Code Blocks** - Powered by [Expressive Code](https://expressive-code.com/)
-- **Math Support** - LaTeX rendering with KaTeX for mathematical expressions
-- **Image Optimization** - PhotoSwipe gallery with lazy loading
-- **SEO Optimized** - Built-in sitemap and meta tags for better search visibility
-- **Performance Optimized** - Fast loading with caching and optimization
-- **Comment System Ready** - Integration support for Twikoo comments
-
-### 🎯 Advanced Markdown Features
-- **Callouts & Admonitions** - Beautiful info boxes with `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`
-- **Mathematical Equations** - Write LaTeX math with `$inline$` and `$$block$$` syntax
-- **GitHub Cards** - Embed repository cards with `::github{repo="user/repo"}`
-- **Syntax Highlighting** - Advanced code highlighting with line numbers
-- **Copy Code Buttons** - Easy code copying functionality
+- 💻 **GitHub**: [Sallyn0225](https://github.com/Sallyn0225)
+- ✉️ **Email**: [sallyn0225@foxmail.com](mailto:sallyn0225@foxmail.com)
 
 ---
 
-*Built with ❤️ using Astro and inspired by modern web design principles.*
+*感谢你的来访！希望在这里能找到对你有用的内容！*
