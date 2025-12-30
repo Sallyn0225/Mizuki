@@ -30,7 +30,11 @@ export function remarkFixLinks() {
 				const currentDir = path.dirname(currentFile);
 
 				// 2. 将相对链接解析为绝对路径（相对于系统根目录）
-				const targetFile = path.resolve(currentDir, decodedUrl);
+				// 使用 path.join 而不是 path.resolve，因为 decodedUrl 可能是以 .. 开头的相对路径
+				// 并且我们需要确保它在 postsDir 内部
+				const targetFile = path.normalize(
+					path.join(currentDir, decodedUrl),
+				);
 
 				// 3. 计算目标文件相对于 posts 目录的相对路径
 				let relativeToPosts = path.relative(postsDir, targetFile);
