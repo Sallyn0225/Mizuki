@@ -39,8 +39,9 @@ export function remarkFixLinks() {
 				// 3. 计算目标文件相对于 posts 目录的相对路径
 				let relativeToPosts = path.relative(postsDir, targetFile);
 
-				// 4. 统一处理路径分隔符为正斜杠（Windows 兼容）
-				relativeToPosts = relativeToPosts.split(path.sep).join("/");
+				// 4. 统一处理路径分隔符为正斜杠（跨平台兼容）
+				// 强制将所有反斜杠转换为正斜杠，并处理可能的平台差异
+				relativeToPosts = relativeToPosts.replace(/\\/g, "/");
 
 				// 5. 移除 .md 后缀
 				let slug = relativeToPosts.replace(/\.md$/i, "");
