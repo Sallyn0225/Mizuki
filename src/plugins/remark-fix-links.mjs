@@ -31,9 +31,17 @@ export function remarkFixLinks() {
 				relativeToPosts = relativeToPosts.split(path.sep).join("/");
 
 				// 5. 移除 .md 后缀
-				const slug = relativeToPosts.replace(/\.md$/, "");
+				let slug = relativeToPosts.replace(/\.md$/, "");
 
-				// 6. 构造最终的站点 URL
+				// 6. 关键修复：模拟 Astro 的 slugify 逻辑
+				// Astro 默认会将文件名中的空格转换为短横线 (-)，并转换为全小写
+				slug = slug
+					.toLowerCase()
+					.replace(/\s+/g, "-") // 空格转 -
+					.replace(/[^a-z0-9\/\-_]/g, "") // 移除其他非法字符
+					.replace(/-+/g, "-"); // 多个 - 转单个 -
+
+				// 7. 构造最终的站点 URL
 				// 加上 /posts/ 前缀，并确保不包含双斜杠
 				node.url = `/posts/${slug}/`.replace(/\/+/g, "/");
 
