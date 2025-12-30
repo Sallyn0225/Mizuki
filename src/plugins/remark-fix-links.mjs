@@ -49,7 +49,8 @@ export function remarkFixLinks() {
 				slug = slug
 					.toLowerCase()
 					.replace(/\s+/g, "-") // 空格转 -
-					.replace(/[<>:"/\\|?*\x00-\x1F]/g, "") // 移除 Windows 文件名非法字符（除了正斜杠，因为我们要保留目录结构）
+					.replace(/[<>:"|?*\x00-\x1F]/g, "") // 移除 Windows 文件名非法字符（保留正斜杠 / 和反斜杠 \，因为我们要保留目录结构）
+					.replace(/\\/g, "/") // 将所有反斜杠转为正斜杠
 					.replace(/-+/g, "-"); // 多个 - 转单个 -
 
 				// 7. 构造最终的站点 URL
