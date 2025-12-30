@@ -46,12 +46,15 @@ export function remarkFixLinks() {
 				// - 转小写
 				// - 空格转短横线 (-)
 				// - 移除特殊字符，但保留非 ASCII 字符（如中文）
-				slug = slug
-					.toLowerCase()
-					.replace(/\s+/g, "-") // 空格转 -
-					.replace(/[<>:"|?*\x00-\x1F]/g, "") // 移除 Windows 文件名非法字符（保留正斜杠 / 和反斜杠 \，因为我们要保留目录结构）
-					.replace(/\\/g, "/") // 将所有反斜杠转为正斜杠
-					.replace(/-+/g, "-"); // 多个 - 转单个 -
+				// 注意：slugify 应该分别作用于路径的每一段，而不是整个路径
+				const slugParts = slug.split("/").map((part) => {
+					return part
+						.toLowerCase()
+						.replace(/\s+/g, "-") // 空格转 -
+						.replace(/[<>:"/\\|?*\x00-\x1F]/g, "") // 移除 Windows 文件名非法字符
+						.replace(/-+/g, "-"); // 多个 - 转单个 -
+				});
+				slug = slugParts.join("/");
 
 				// 7. 构造最终的站点 URL
 				// 加上 /posts/ 前缀，并确保不包含双斜杠
