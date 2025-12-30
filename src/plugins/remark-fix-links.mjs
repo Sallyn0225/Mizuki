@@ -41,7 +41,8 @@ export function remarkFixLinks() {
 
 				// 4. 统一处理路径分隔符为正斜杠（跨平台兼容）
 				// 强制将所有反斜杠转换为正斜杠，并处理可能的平台差异
-				relativeToPosts = relativeToPosts.replace(/\\/g, "/");
+				// 使用正则表达式全局替换，确保所有反斜杠都被处理
+				relativeToPosts = relativeToPosts.split(path.sep).join("/");
 
 				// 5. 移除 .md 后缀
 				let slug = relativeToPosts.replace(/\.md$/i, "");
@@ -56,7 +57,7 @@ export function remarkFixLinks() {
 					return part
 						.toLowerCase()
 						.replace(/\s+/g, "-") // 空格转 -
-						.replace(/[<>:"/\\|?*\x00-\x1F]/g, "") // 移除 Windows 文件名非法字符
+						.replace(/[<>:"|?*\x00-\x1F]/g, "") // 移除 Windows 文件名非法字符（不包含斜杠，因为已经 split 了）
 						.replace(/-+/g, "-"); // 多个 - 转单个 -
 				});
 				slug = slugParts.join("/");
