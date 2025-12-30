@@ -14,15 +14,23 @@ export function remarkFixLinks() {
 		visit(tree, "link", (node) => {
 			// 只处理相对路径且以 .md 结尾的链接
 			if (
-				node.url.startsWith(".") &&
-				node.url.endsWith(".md") &&
+				(node.url.startsWith(".") || !node.url.startsWith("/")) &&
+				node.url.toLowerCase().endsWith(".md") &&
 				!node.url.startsWith("http")
 			) {
+				// 0. 处理 URL 编码（如 %20）
+				let decodedUrl = node.url;
+				try {
+					decodedUrl = decodeURI(node.url);
+				} catch (e) {
+					// 忽略解码错误
+				}
+
 				// 1. 获取当前文件相对于 posts 目录的目录路径
 				const currentDir = path.dirname(currentFile);
 
 				// 2. 将相对链接解析为绝对路径（相对于系统根目录）
-				const targetFile = path.resolve(currentDir, node.url);
+				const targetFile = path.resolve(currentDir, decodedUrl);
 
 				// 3. 计算目标文件相对于 posts 目录的相对路径
 				let relativeToPosts = path.relative(postsDir, targetFile);
@@ -31,14 +39,17 @@ export function remarkFixLinks() {
 				relativeToPosts = relativeToPosts.split(path.sep).join("/");
 
 				// 5. 移除 .md 后缀
-				let slug = relativeToPosts.replace(/\.md$/, "");
+				let slug = relativeToPosts.replace(/\.md$/i, "");
 
-				// 6. 关键修复：模拟 Astro 的 slugify 逻辑
-				// Astro 默认会将文件名中的空格转换为短横线 (-)，并转换为全小写
+				// 6. 关键修复：模拟 Astro 的默认 slugify 逻辑
+				// Astro 的默认逻辑：
+				// - 转小写
+				// - 空格转短横线 (-)
+				// - 移除特殊字符，但保留非 ASCII 字符（如中文）
 				slug = slug
 					.toLowerCase()
 					.replace(/\s+/g, "-") // 空格转 -
-					.replace(/[^a-z0-9\/\-_]/g, "") // 移除其他非法字符
+					.replace(/[<>:"/\\|?*\x00-\x1F]/g, "") // 移除 Windows 文件名非法字符（除了正斜杠，因为我们要保留目录结构）
 					.replace(/-+/g, "-"); // 多个 - 转单个 -
 
 				// 7. 构造最终的站点 URL
